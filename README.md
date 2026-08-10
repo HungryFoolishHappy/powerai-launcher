@@ -29,19 +29,17 @@ re-running is always a clean start.
   endpoint they call is public. Never add a credential to a notebook here — this repo
   is public.
 
-## `demos/`
+## Serving a primitive as an endpoint
 
-Hand-written notebooks, not generated. `demos/pvlib-endpoint-in-colab.ipynb` turns a
-Colab session into the live endpoint that `@examples/pvlib-python`'s Tool tab points
-at, so a primitive can be shown being *called* rather than downloaded. It prints a
-public HTTPS URL you paste into the Tool tab.
+Some launchers carry extra cells that install the unpacked archive, start the endpoint
+answering that primitive's declared tool interface, and open a public HTTPS tunnel — so
+the Hub, an agent, or a `curl` can call it and get a real computed answer.
+`primitives/examples/pvlib-python.ipynb` is the current example.
 
-Read its first cell before demoing: the endpoint dies with the session, and each
-person who runs it gets a different URL, so it is a demo one person drives rather than
+Read that section's own preamble before relying on it: the endpoint dies with the
+session, and since the Hub stores one address per primitive while every person who runs
+the notebook gets a different tunnel URL, it is a demo one person drives rather than
 something every visitor wires up.
-
-Everything below writes only under `primitives/`, so nothing here is ever overwritten
-or removed by regeneration.
 
 ## Regenerating
 
